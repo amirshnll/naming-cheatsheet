@@ -1,33 +1,36 @@
+<div dir="rtl">
+
 <p align="center">
   <a href="https://github.com/kettanaito/naming-cheatsheet">
     <img src="./naming-cheatsheet.png" alt="Naming cheatsheet" />
   </a>
 </p>
 
-# Naming cheatsheet
+# قواعد نام گذاری توابع و متغیر‌ها
 
-- [English language](#english-language)
-- [Naming convention](#naming-convention)
-- [S-I-D](#s-i-d)
-- [Avoid contractions](#avoid-contractions)
-- [Avoid context duplication](#avoid-context-duplication)
-- [Reflect the expected result](#reflect-the-expected-result)
-- [Naming functions](#naming-functions)
-  - [A/HC/LC pattern](#ahclc-pattern)
-    - [Actions](#actions)
-    - [Context](#context)
-    - [Prefixes](#prefixes)
-- [Singular and Plurals](#singular-and-plurals)
+- [از زبان انگلیسی استفاده کنید](#english-language)
+- [قاعده نام گذاری مشخص داشته باشید](#naming-convention)
+- [از قانون S-I-D پیروی کنید](#s-i-d)
+- [خلاصه نکنید](#avoid-contractions)
+- [از تکرار دوری کنید](#avoid-context-duplication)
+- [از طریق نام نتیجه را معلوم کنید](#reflect-the-expected-result)
+- [نام گذاری توابع](#naming-functions)
+  - [الگوی A / HC / LC](#ahclc-pattern)
+    - [در نام از فعل استفاده کنید](#actions)
+    - [نام باید عملکرد را مشخص کند](#context)
+    - [پیشوندها](#prefixes)
+- [از کلمات مفرد و جمع در نام استفاده کنید](#singular-and-plurals)
 
 ---
 
-Naming things is hard. This sheet attempts to make it easier.
+انتخاب نام کار پیچیده ای است و این راهنما قرار است کار را ساده تر کند.
 
-Although these suggestions can be applied to any programming language, I will use JavaScript to illustrate them in practice.
+دقت کنید ممکن است در زبان های مختلف این موضوع متفاوت باشد اما در این صفحه مثال ها با جاوااسکریپت نمایش داده شده است.
 
-## English language
 
-Use English language when naming your variables and functions.
+## از زبان انگلیسی استفاده کنید
+
+از زبان انگلیسی برای نام گذاری متغیرها و تابع ها استفاده کنید.
 
 ```js
 /* Bad */
@@ -39,11 +42,12 @@ const firstName = 'Gustavo'
 const friends = ['Kate', 'John']
 ```
 
-> Like it or not, English is the dominant language in programming: the syntax of all programming languages is written in English, as well as countless documentations and educational materials. By writing your code in English you dramatically increase its cohesiveness.
+> چه بخواهیم و چه نخواهیم ، انگلیسی زبان غالب در برنامه نویسی است: نحو تمام زبان های برنامه نویسی به انگلیسی ، و همچنین مستندات و مطالب آموزشی بی شماری با این زبان نوشته شده است. با نوشتن کد خود به انگلیسی ، انسجام آن را به طرز چشمگیری افزایش می دهید.
 
-## Naming convention
 
-Pick **one** naming convention and follow it. It may be `camelCase`, `PascalCase`, `snake_case`, or anything else, as long as it remains consistent. Many programming languages have their own traditions regarding naming conventions; check the documentation for your language or study some popular repositories on Github!
+## قاعده نام گذاری مشخص داشته باشید
+
+یگی از قواعد نام گذاری را برای خود انتخاب کنید و طبق آن پیش بروید. از بین قواعدی مثل `camelCase`, `PascalCase`, `snake_case` و ... یکی را انتخاب کنید.
 
 ```js
 /* Bad */
@@ -59,13 +63,13 @@ const page_count = 5
 const should_update = true
 ```
 
-## S-I-D
+## از قانون S-I-D پیروی کنید
 
-A name must be _short_, _intuitive_ and _descriptive_:
+یک نام باید کوتاه، بصری و توصیفی باشد:
 
-- **Short**. A name must not take long to type and, therefore, remember;
-- **Intuitive**. A name must read naturally, as close to the common speech as possible;
-- **Descriptive**. A name must reflect what it does/possesses in the most efficient way.
+- **کوتاه یا Short**. نام باید کوتاه باشد تا در طولانی مدت به خاطر بماند
+- **بصری یا Intuitive**. یک نام باید به صورت طبیعی قابل خواندن باشد و این موضوع باید برای همه این طور باشد
+- **توصیفی یا Descriptive**. یک نام باید به کارآمد ترین روش با کاری که انجام می دهد مشخص شده باشد
 
 ```js
 /* Bad */
@@ -79,9 +83,10 @@ const hasPagination = postCount > 10
 const shouldPaginate = postCount > 10 // alternatively
 ```
 
-## Avoid contractions
+## خلاصه نکنید
 
-Do **not** use contractions. They contribute to nothing but decreased readability of the code. Finding a short, descriptive name may be hard, but contraction is not an excuse for not doing so.
+از خلاصه کردن پرهیز کنید دلیل این موضوع هم این است که خلاصه کردن باعث کاهش خوانایی متن خواهد شد پس حتما در ارتباط با این موضوع پرهیز کنید.
+
 
 ```js
 /* Bad */
@@ -91,9 +96,9 @@ const onItmClk = () => {}
 const onItemClick = () => {}
 ```
 
-## Avoid context duplication
+## از تکرار دوری کنید
 
-A name should not duplicate the context in which it is defined. Always remove the context from a name if that doesn't decrease its readability.
+از تکرار جلوگیری کنید. مثلا مثل مثال زیر نام کلاس را در نام اعضا آن کلاس نبرید و استفاده نکنید.
 
 ```js
 class MenuItem {
@@ -105,9 +110,9 @@ class MenuItem {
 }
 ```
 
-## Reflect the expected result
+## از طریق نام نتیجه را معلوم کنید
 
-A name should reflect the expected result.
+یک نام باید نتیجه ای که بر می گرداند را دقیقا مشخص کند
 
 ```jsx
 /* Bad */
@@ -121,17 +126,17 @@ return <Button disabled={isDisabled} />
 
 ---
 
-# Naming functions
+# نام گذاری توابع
 
-## A/HC/LC Pattern
+## الگوی A / HC / LC
 
-There is a useful pattern to follow when naming functions:
+یک الگوی مفید برای نام گذاری تابع ها وجود دارد:
 
 ```
 prefix? + action (A) + high context (HC) + low context? (LC)
 ```
 
-Take a look at how this pattern may be applied in the table below.
+نحوه ی استفاده ی این الگو در جدول زیر آمده است.
 
 | Name                   | Prefix   | Action (A) | High context (HC) | Low context (LC) |
 | ---------------------- | -------- | ---------- | ----------------- | ---------------- |
@@ -140,18 +145,19 @@ Take a look at how this pattern may be applied in the table below.
 | `handleClickOutside`   |          | `handle`   | `Click`           | `Outside`        |
 | `shouldDisplayMessage` | `should` | `Display`  | `Message`         |                  |
 
-> **Note:** The order of context affects the meaning of a variable. For example, `shouldUpdateComponent` means _you_ are about to update a component, while `shouldComponentUpdate` tells you that _component_ will update on itself, and you are but controlling when it should be updated.
-> In other words, **high context emphasizes the meaning of a variable**.
+> **یادداشت:**  
+> ترتیب انجام کارها بسیار مهم است مثلا `shouldUpdateComponent` در جایی استفاده می شود که به صورت دائمی آپدیت می شود ولی `shouldComponentUpdate` در جایی استفاده می شود که باید آپدیت کنید و این آپدیت توسط شما باید انجام شود.
+> همیشه High context بر معنی نام یک متغیر تاثیر می گذارد.
 
 ---
 
-## Actions
+## در نام از فعل استفاده کنید
 
-The verb part of your function name. The most important part responsible for describing what the function _does_.
+مهم ترین بخشی را که تابع انجام می دهد را به عنوان فعل به کار ببرید و نام آن را نام تابع استفاده کنید.
 
 ### `get`
 
-Accesses data immediately (i.e. shorthand getter of internal data).
+داده هایی که در همان لحظه خروجی خواهید گرفت.
 
 ```js
 function getFruitCount() {
@@ -159,11 +165,11 @@ function getFruitCount() {
 }
 ```
 
-> See also [compose](#compose).
+> همچنین [compose](#compose)  را مشاهده کنید.
 
 ### `set`
 
-Sets a variable in a declarative way, with value `A` to value `B`.
+برای اعلان یک متغیر استفاده می شود
 
 ```js
 let fruits = 0
@@ -178,7 +184,7 @@ console.log(fruits) // 5
 
 ### `reset`
 
-Sets a variable back to its initial value or state.
+یک متغیر را به مقدار یا حالت اولیه خود بر می گرداند.
 
 ```js
 const initialFruits = 5
@@ -196,7 +202,7 @@ console.log(fruits) // 5
 
 ### `fetch`
 
-Request for some data, which takes some indeterminate time (i.e. async request).
+درخواست برای برخی از داده هایی، که یک مدتی  طول می کشد تا پاسخ داده شود (به عنوان مثال درخواست همگام سازی یا sync کردن).
 
 ```js
 function fetchPosts(postCount) {
@@ -206,9 +212,10 @@ function fetchPosts(postCount) {
 
 ### `remove`
 
-Removes something _from_ somewhere.
+چیزی را از جایی حذف می کند.
 
-For example, if you have a collection of selected filters on a search page, removing one of them from the collection is `removeFilter`, **not** `deleteFilter` (and this is how you would naturally say it in English as well):
+به عنوان مثال ، اگر مجموعه ای از فیلترهای انتخاب شده در صفحه جستجو داشته باشید ، حذف یکی از این مجموعه ها با "removeFilter" است و "deleteFilter" اتفاق نمی افتد
+
 
 ```js
 function removeFilter(filterName, filters) {
@@ -219,13 +226,14 @@ const selectedFilters = ['price', 'availability', 'size']
 removeFilter('price', selectedFilters)
 ```
 
-> See also [delete](#delete).
+> همچنین [delete](#delete) را مشاهده کنید.
 
 ### `delete`
 
-Completely erases something from the realms of existence.
+چیزی که می خواهید کاملا پاک کنید.
 
-Imagine you are a content editor, and there is that notorious post you wish to get rid of. Once you clicked a shiny "Delete post" button, the CMS performed a `deletePost` action, **not** `removePost`.
+فکر کنید یک سیستم مدیریت محتوا دارید وقتی روی کلید حذف پست می زنید عملیات `deletePost` انجام می شود و از `removePost` استفاده نمی شود.
+
 
 ```js
 function deletePost(id) {
@@ -233,11 +241,11 @@ function deletePost(id) {
 }
 ```
 
-> See also [remove](#remove).
+> همچنین [remove](#remove) را مشاهده کنید.
 
 ### `compose`
 
-Creates new data from the existing one. Mostly applicable to strings, objects, or functions.
+داده های جدیدی را از داده های موجود ایجاد می کند. بیشتر در رشته ها، شی ها یا تابع ها کاربرد دارد.
 
 ```js
 function composePageUrl(pageName, pageId) {
@@ -245,11 +253,12 @@ function composePageUrl(pageName, pageId) {
 }
 ```
 
-> See also [get](#get).
+> همچنین [get](#get) را مشاهده کنید.
 
 ### `handle`
 
 Handles an action. Often used when naming a callback method.
+Handles برای عمل ها به کار می رود. اغلب هنگام نام گذاری برای یک روش پاسخ گویی قابل استفاده است.
 
 ```js
 function handleLinkClick() {
@@ -261,11 +270,9 @@ link.addEventListener('click', handleLinkClick)
 
 ---
 
-## Context
+## نام باید عملکرد را مشخص کند
 
-A domain that a function operates on.
-
-A function is often an action on _something_. It is important to state what its operable domain is, or at least an expected data type.
+نام یک تابع باید کار آن تابع را مشخص کند یا حداقل کاری را که قرار است انجام دهد را مشخص کند.
 
 ```js
 /* A pure function operating with primitives */
@@ -279,17 +286,17 @@ function getRecentPosts(posts) {
 }
 ```
 
-> Some language-specific assumptions may allow omitting the context. For example, in JavaScript, it's common that `filter` operates on Array. Adding explicit `filterArray` would be unnecessary.
+> برخی از موارد در زبان های مختلف متفاوت است مثلا در جاوااسکریپت اپراتور filter روی آرایه ها عمل می کنند و نیازی به اضافه کردن fitlterArray ندارید.
 
 --
 
-## Prefixes
+## پیشوندها
 
-Prefix enhances the meaning of a variable. It is rarely used in function names.
+پیشوندها به نام متغیرها معنای بهتری می دهند و معمولا در نام توابع استفاده نخواهند شد
 
 ### `is`
 
-Describes a characteristic or state of the current context (usually `boolean`).
+مشخصه یا حالتی از زمینه فعلی را توصیف می کند (معمولاً به صورت بولین).
 
 ```js
 const color = 'blue'
@@ -303,7 +310,7 @@ if (isBlue && isPresent) {
 
 ### `has`
 
-Describes whether the current context possesses a certain value or state (usually `boolean`).
+توصیف می کند که آیا این مقدار فعلی مقدار یا حالت خاصی می باشد یا نه (معمولاً به صورت بولین).
 
 ```js
 /* Bad */
@@ -316,7 +323,7 @@ const hasProducts = productsCount > 0
 
 ### `should`
 
-Reflects a positive conditional statement (usually `boolean`) coupled with a certain action.
+یک جمله شرطی مثبت را همراه با یک عمل خاص منعکس می کند (معمولاً به صورت بولین).
 
 ```js
 function shouldUpdateUrl(url, expectedUrl) {
@@ -326,7 +333,7 @@ function shouldUpdateUrl(url, expectedUrl) {
 
 ### `min`/`max`
 
-Represents a minimum or maximum value. Used when describing boundaries or limits.
+مقدار حداقل و حداکثر را مشخص کند هنگام توصیفات محدوده حتما محدودیت ها را مشخص کنید.
 
 ```js
 /**
@@ -340,7 +347,7 @@ function renderPosts(posts, minPosts, maxPosts) {
 
 ### `prev`/`next`
 
-Indicate the previous or the next state of a variable in the current context. Used when describing state transitions.
+این بخش حالت بعدی یا قبلی متغیر را نشان می دهد از آن در زمان انتقال حالت ها استفاده کنید.
 
 ```jsx
 function fetchPosts() {
@@ -353,9 +360,9 @@ function fetchPosts() {
 }
 ```
 
-## Singular and Plurals
+## از کلمات مفرد و جمع در نام استفاده کنید
 
-Like a prefix, variable names can be made singular or plural depending on whether they hold a single value or multiple values.
+مانند پیشوندها نام متغیرها بسته به اینکه یک متغیر باشند و یک داده را بگیرند یا آرایه باشند و چندین داده را بگیرند باید جمع یا مفرد استفاده شود
 
 ```js
 /* Bad */
@@ -366,3 +373,6 @@ const friend = ['Bob', 'Tony', 'Tanya']
 const friend = 'Bob'
 const friends = ['Bob', 'Tony', 'Tanya']
 ```
+
+
+</div>
