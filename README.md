@@ -155,9 +155,13 @@ return <Button disabled={isDisabled} />
 
 یک الگوی مفید برای نام گذاری تابع ها وجود دارد:
 
+</div>
+
 ```
 prefix? + action (A) + high context (HC) + low context? (LC)
 ```
+
+<div dir="rtl">
 
 نحوه ی استفاده ی این الگو در جدول زیر آمده است.
 
